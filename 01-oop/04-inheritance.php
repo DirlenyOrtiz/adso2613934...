@@ -20,6 +20,32 @@
                 margin: 0;
             }
 
+            div.pks {
+                display: flex;
+                gap: 10px;
+                div.pokemon {
+                    border: 1px dotted #fff;
+                    align-items: center;
+                    flex-direction: column;
+                    gap: 10px;
+                    display: flex;
+                    padding: 10px;
+                    transition: all 0.5s ease-in; 
+                    filter: blur(2px) grayscale(1);
+                    img {
+                        height: 100px;
+                        object-fit: cover;
+                        width: 100px;
+                    }
+                }
+                div.pokemon:hover {
+                    transform: scale(1.1);
+                    filter: blur(0) grayscale(0);
+                }
+            }
+
+            
+
         }
     </style>
 </head>
@@ -39,51 +65,54 @@
         <section>
 
             <?php
-
-            class Pokemon{   
-            // Atributes
-            protected $name;
-            protected $type;
-            protected $healt;
-            protected $img;
+        abstract class dataBase {
+            //Attributes
+            protected $host;
+            protected $user;
+            protected $pass;
+            protected $dbname;
+            protected $conx;
+        }
         
 
             //Methods
-            public function __construct($name,$type,$healt, $img){
-                $this->name = $name;
-                $this->type = $type;
-                $this->healt = $healt;
-                $this->img = $img;
+            public function __construct($host='localhost', $user='root', $pass='', $dbname){
+                $this->host = $host;
+                $this->user = $user;
+                $this->pass = $pass;
+                $this->$dbname = $dbname;
             }
-            public function attack (){
-                return "Attack";
+            public function connect(){
+                try {
+                    $this->conx = new PDO("mysql:host=$this->pass
+                    dbname=$this->dbname", $this->user, $this->pass);
+                    if($this->$conx){
+                        echo "😒";
+                    }
+                } catch (PDOException $e) {
+                    echo "Error: " . $e->getMessage();
+                };
             }
-            public function defense (){
-                return "Defense";
-            }
-            public function show(){
-                return $this->name; 
-            }
-        }
-        class evolve extends Pokemon {
-            public function levelUp($name,$type,$healt,$img) {
-                parent::__construct($name,$type,$healt,$img);
-                }
-            }
-                
+           class pokemon extends DataBase {
+
+           }
+        
+           $db = new Pokemon('adso2613934');
+           $db->connect();
         ?>
          <h2>Evolve your Pokemon</h2>
+
          <div class="pks"> 
             <?php
 
         
 
-        $pk = new evolve('charmander', 'fire', 150,'img/verde.jpg');
-         echo $pk -> show;
+        $pk = new Evolve('charmander', 'fire', 150,'img/verde.jpg');
+         echo $pk ->show();
         $pk -> levelUp('charmeleon', 'fire', 250,'img/amarillo.jpg');
-        echo $pk->show;
-        $pk -> levelUp('charmeleon', 'fire', 250,'img/gris.jpg');
-        echo $pk->show;
+        echo $pk->show();
+        $pk -> levelUp('charizard', 'fire', 250,'img/gris.jpg');
+        echo $pk->show();
 
 ?>
  </div>
