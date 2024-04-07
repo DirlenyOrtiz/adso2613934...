@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>04- inheritance</title>
+    <title>04-Inheritance</title>
     <link rel="stylesheet" href="css/master.css">
     <style>
         section {
@@ -22,30 +22,51 @@
 
             div.pks {
                 display: flex;
-                gap: 10px;
-                div.pokemon {
-                    border: 1px dotted #fff;
-                    align-items: center;
-                    flex-direction: column;
-                    gap: 10px;
+                gap: 1rem;
+                div.pk {
+                    background-repeat: no-repeat;
                     display: flex;
-                    padding: 10px;
-                    transition: all 0.5s ease-in; 
-                    filter: blur(2px) grayscale(1);
-                    img {
-                        height: 100px;
-                        object-fit: cover;
-                        width: 100px;
+                    position: relative;
+                    flex-direction: column;
+                    height: 308px;
+                    overflow: hidden;
+                    padding: 4px;
+                    width: 141px;
+
+                    div.info {
+                        background-color: #0009;
+                        border-bottom: 2px solid #fffc;
+                        color: #fffa;
+                        display: flex;
+                        flex-direction: column;
+                        position: absolute;
+                        bottom: -52px;
+                        left: 2px;
+                        padding: 4px;
+                        transition: bottom 0.4s ease-in;
+                        width: 128px;
+
+                        span:nth-child(1) {
+                            background-color: #0009;
+                            color: #fff;
+                            text-align: center;
+                            margin-bottom: 4px;
+                        }
                     }
                 }
-                div.pokemon:hover {
-                    transform: scale(1.1);
-                    filter: blur(0) grayscale(0);
+
+                div.pk:hover div.info {
+                    bottom: 0;
+                    cursor: crosshair;
+                }
+
+                div.pk:hover {
+                    cursor: grab;
+                    opacity: 0.5;
+                    filter: drop-shadow(5px 5px 5px #fff);
+                    transition: 1s;
                 }
             }
-
-            
-
         }
     </style>
 </head>
@@ -53,71 +74,79 @@
 <body>
     <nav class="controls">
         <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                <path fill="#ffffff"
-                    d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM231 127c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-71 71L376 232c13.3 0 24 10.7 24 24s-10.7 24-24 24l-182.1 0 71 71c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L119 273c-9.4-9.4-9.4-24.6 0-33.9L231 127z" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path fill="#ffffff" d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM231 127c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-71 71L376 232c13.3 0 24 10.7 24 24s-10.7 24-24 24l-182.1 0 71 71c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L119 273c-9.4-9.4-9.4-24.6 0-33.9L231 127z" />
             </svg>
         </a>
     </nav>
     <main>
-        <h1>04- inheritance</h1>
+        <h1>04 - Inheritance</h1>
         <section>
-
             <?php
-        abstract class dataBase {
-            //Attributes
-            protected $host;
-            protected $user;
-            protected $pass;
-            protected $dbname;
-            protected $conx;
-        }
-        
+            class Pokemon
+            {
+                // Attributes
+                protected $name;
+                protected $type;
+                protected $healt;
+                protected $img;
+                //protected $image;
 
-            //Methods
-            public function __construct($host='localhost', $user='root', $pass='', $dbname){
-                $this->host = $host;
-                $this->user = $user;
-                $this->pass = $pass;
-                $this->$dbname = $dbname;
+
+                // Methods
+                public function __construct($name, $type, $healt, $img)
+                {
+                    $this->name  = $name;
+                    $this->type  = $type;
+                    $this->healt = $healt;
+                    $this->img   = $img;
+                }
+                public function attack()
+                {
+                    return "Attack";
+                }
+                public function defense()
+                {
+                    return "Defense";
+                }
+                public function show()
+                {
+                    return
+                        "<div class='pk' style='background-image: url(" . $this->img . ")'>" .
+                        "<div class='info'>" .
+                        "<span>" . $this->name  . "</span>" .
+                        "<span> Type: " . $this->type  . "</span>" .
+                        "<span> Healt: " . $this->healt . "</span>" .
+                        "</div>" .
+                        "</div>";
+                }
             }
-            public function connect(){
-                try {
-                    $this->conx = new PDO("mysql:host=$this->pass
-                    dbname=$this->dbname", $this->user, $this->pass);
-                    if($this->$conx){
-                        echo "😒";
-                    }
-                } catch (PDOException $e) {
-                    echo "Error: " . $e->getMessage();
-                };
+
+
+
+            class Evolve extends Pokemon
+            {
+                public function levelUp($name, $type, $healt, $img)
+                {
+                    parent::__construct($name, $type, $healt, $img);
+                }
             }
-           class pokemon extends DataBase {
+            ?>
+            <h2>Evolve your Pokemon</h2>
+            <div class="pks">
+                <?php
+                $pk = new Evolve('Charmander', 'Fire', 150, 'images/charmander.png');
+                echo $pk->show();
+                $pk->levelUp('Charmeleon', 'Fire', 250, 'images/charmeleon.png');
+                echo $pk->show();
+                $pk->levelUp('Charizard', 'Fire-Fly', 450, 'images/charizard.png');
+                echo $pk->show();
+                ?>
+            </div>
 
-           }
-        
-           $db = new Pokemon('adso2613934');
-           $db->connect();
-        ?>
-         <h2>Evolve your Pokemon</h2>
 
-         <div class="pks"> 
-            <?php
 
-        
-
-        $pk = new Evolve('charmander', 'fire', 150,'img/verde.jpg');
-         echo $pk ->show();
-        $pk -> levelUp('charmeleon', 'fire', 250,'img/amarillo.jpg');
-        echo $pk->show();
-        $pk -> levelUp('charizard', 'fire', 250,'img/gris.jpg');
-        echo $pk->show();
-
-?>
- </div>
-            
-</section>
+        </section>
     </main>
 </body>
 
