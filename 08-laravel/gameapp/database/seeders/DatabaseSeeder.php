@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
             GameSeeder::class
         ]);
 
+        User::factory(50)->create();
+
         //User::factory()->create([
             //'name' => 'Test User',
             //'email' => 'test@example.com',
