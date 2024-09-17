@@ -51,14 +51,21 @@ class User extends Authenticatable
         ];
     }
 
-    // Relationship: Category has many games
+    // Relationship: User has many games
     public function games() {
-        return $this->hasMany('App\Models\Game');
+        return $this->hasMany('App\Models\Games');
     }
 
-    // Relationship: User has many Colletion
+    // Relationship: User has many collections
+    public function collections() {
+        return $this->hasMany('App\Models\Collection');
+    }
 
-public function collections(){
-    return $this->hasMany('App\Models\collection');
-}
+    //Scape
+    public function scopeNames($users, $q) {
+        if (trim($q)){
+            $users->where('fullname', 'LIKE' , "%$q%")
+            ->orWhere('email', 'LIKE' , "%$q%");
+        }
+    }
 }

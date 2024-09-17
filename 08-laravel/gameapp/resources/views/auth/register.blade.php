@@ -3,7 +3,6 @@
 @section('class', 'register')
 
 @section('content')
-
 <header>
     <a href="javascript:;" class="btn-back">
         <img src="images/btn-back.svg" alt="Back">
@@ -24,27 +23,34 @@
 <nav class="nav">
     <img src="images/title-menu.svg" alt="Menu" class="title-menu" >
     <menu>
-        <a href="{{('login')}}">
-            <img src="images/ico-login.svg" alt="Login">
+        <a href="{{url('login')}}">
+            <img src="images/ico-login.svg"" alt="Login">
             Login
         </a>
-        <a href="{{('register')}}">
+        <a href="{{url('register')}}">
             <img src="images/ico-register.svg" alt="Register">
             Register
         </a>
-        <a href="{{('catalogue')}}">
+        <a href={{url('catalogue')}}>
             <img src="images/ico-catalogue.svg" alt="Catalogue">
             Catalogue
         </a>
     </menu>
 </nav>
 <section class="scroll">
+    <ul>
+    @if (count($errors->all()) > 0)
+        @foreach ($errors->all() as $message)
+            <li>{{ $message }}</li>
+        @endforeach
+    @endif
+    </ul>
     <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <img id="upload" class="mask" src="images/bg-upload-photo.svg" alt="photo">
             <img class="border" src="images/shape-border.svg" alt="border">
-            <input id="photo" type="file" name="photo" accept="images/*">
+            <input id="photo" type="file" name="photo" accept="image/*">
         </div>
         <div class="form-group">
             <label>
@@ -83,7 +89,7 @@
         </div>
         <div class="form-group">
             <label>
-                <img src="images/ico-birthdate.svg" alt="text">
+                <img src="images/ico-birthdate.svg"" alt="text">
                 Birth Date:
             </label>
             <input type="text" value="{{old('birthdate')}}" name="birthdate" placeholder="1980-10-10">
@@ -101,8 +107,8 @@
                 <img src="images/ico-password2.svg" alt="password">
                 Confirm Password:
             </label>
-            <img class="ico-eye" src="images/ico-eye.svg" alt=" ">
-            <input type="password" name="password_confirmation" placeholder="again">
+            <img class="ico-eye" src="images/ico-eye.svg"" alt=" ">
+            <input type="password" name="password_confirmation" placeholder="dontmesswithmydog">
         </div>
         <div class="form-group">
             <button type="submit">
@@ -128,7 +134,7 @@
                     : $(this).next().attr('type', 'password')
 
         !$togglePass ? $(this).attr('src', 'images/ico-eye.svg')
-                    : $(this).attr('src', 'images/closedico-eye.svg')
+                    : $(this).attr('src', 'images/ico-eye-open.svg')
 
         $togglePass = !$togglePass
 
@@ -148,32 +154,26 @@
      //----------------------------
     })
 </script>
+@if (count($errors->all()) > 0)
+@php $error = '' @endphp
+@foreach ($errors->all() as $message)
+        @php $error .= '<li>' . $message . '</li>' @endphp
+@endforeach
+
 <script>
-    @if (count($errors->all()) < 0)
-    @php $error = '' @endphp
-    @foreach ($errors->all() as $message)
-    @php $error .= "<li>" . $message . "</li>" @endphp
-    @endforeach
-</script>
-<script>
-$(document).ready(function(){
-    swall.fire({
-        position: "top",
-        title: "Ops !",
-        html: `@php echo $error @endphp`,
-        icon: "error",
-        toast: true,
-        showConfirmButton: false,
-        timer: 5000
+    $(document).ready(function(){
+        Swal.fire({
+            position: 'top',
+            title: 'Ops !',
+            html: @php echo $error @endphp,
+            icon: 'error',
+            toast: true,
+            showConfirmButton: false,
+            timer: 5000
+        })
     })
-})
 </script>
+
+
 @endif
 @endsection
-
-
-
-
-
-
-

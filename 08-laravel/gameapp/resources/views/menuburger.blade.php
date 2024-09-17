@@ -21,22 +21,24 @@
 @auth
     <nav class="nav">
         <figure class="avatar">
-            <img class="mask" src="images/photo.png" alt="Photo">
-            <img class="border" src="images/borde2.svg" alt="border">
+            <img class="mask" src="{{asset('images') . '/' . Auth::user()->photo}}" alt="Photo">
+            <img class="border" src="{{asset('images/shape-border.svg')}}" alt="border">
         </figure>
+        <div class="ico-squar">
         <h2>{{ Auth::user()->fullname }}</h2>
         <h4>{{ Auth::user()->role }}</h4>
+        </div>
         <menu>
-            <a href="my-profile.html">
-                <img src="images/ico-login.svg" alt="">
+            <a href="{{url('myprofile')}}">
+                <img src="../images/ico-login.svg" alt="">
                 My Profile
             </a>
-            <a href="dashboard.html">
-                <img src="images/ico-categories.svg" alt="">
+            <a href="{{url('dashboard')}}">
+                <img src="../images/ico-register.svg" alt="">
                 Dashboard
             </a>
             <a href="javascript:;" onclick="logout.submit();">
-                <img src="{{ asset ('images/images/ico-catalogue.svg') }}" alt="Log out">
+                <img src="{{ asset ('images/ico-catalogue.svg') }}" alt="Log out">
                 Logout
             </a>
             <form id="logout" action="{{ route('logout')}}" method="post">

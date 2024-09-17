@@ -6,7 +6,7 @@
     <title>GameApp - My prefile</title>
     <link rel="stylesheet" href="/07-layout/css/reset.css">
     <link rel="stylesheet" href="/07-layout/css/fonts.css">
-    <link rel="stylesheet" href="/07-layout/css/master.css">        
+    <link rel="stylesheet" href="/07-layout/css/master.css">
 </head>
 <body>
     <main class="my-profile">
@@ -60,7 +60,7 @@
             <h2>Bianca Fabbri Mora</h2>
             <span class="email"><b>Bianca2024@gmail.com</b></span>
             <span class="role">
-                <img src="../images/views/ico-role.svg" alt="role">
+                <img src="{{asset('../images/views/ico-role.svg')}}" alt="role">
                 <h3>Administrador</h3>
             </span>
             <div class="grid">
@@ -90,16 +90,16 @@
                 </span>
             </div>
         </section>
-    </main>   
-    <script src="/07-layout/js/jquery-3.7.1.min.js"></script>  
+    </main>
+    <script src="/07-layout/js/jquery-3.7.1.min.js"></script>
     <script>
         $(document).ready(function () {
-            
+
             $('header').on('click', '.btn-burger', function(){
             $(this).toggleClass('active')
             $('.nav').toggleClass('active')
             })
-        //----------------------------       
+        //----------------------------
         })
     </script>
 </body>

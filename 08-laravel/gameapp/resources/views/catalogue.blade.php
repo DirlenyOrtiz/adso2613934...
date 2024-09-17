@@ -23,7 +23,7 @@
 <nav class="nav">
     <img src="images/title-menu.svg" alt="menu" class="title-menu">
     <menu>
-        <a href={{asset('login')}}><img src="images/ico-login.svg" alt="Login">Login</a>
+        <a href={{url('login')}}><img src="images/ico-login.svg" alt="Login">Login</a>
         <a href={{('register')}}><img src="images/ico-register.svg" alt="Register">Register</a>
         <a href="catalogue.html"><img src="images/ico-catalogue.svg" alt="Catalogue">Catalogue</a>
     </menu>

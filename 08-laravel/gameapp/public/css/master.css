@@ -39,10 +39,10 @@ body {
                 transition: transform 400ms;
                 user-select: none;
                 position: relative;
-                
+
             .line {
                 fill:none;
-                transition: stroke-dasharray 400ms, 
+                transition: stroke-dasharray 400ms,
                     stroke-dashoffset 400ms;
                     stroke: #E26C28;
                     stroke-width: 4;
@@ -63,7 +63,7 @@ body {
         .bottom {
                 stroke-dashoffset: -68px;
             }
-        } 
+        }
         }
         section.scroll {
             scrollbar-width: none;
@@ -89,7 +89,7 @@ body {
             z-index: 2;
             width: 400px;
         }
-                .avatar {               
+                .avatar {
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -110,7 +110,7 @@ body {
                 align-self: center;
                 position: relative;
                 width: 160px;
-                height: 160px;                    
+                height: 160px;
             }
             #upload {
                 cursor: pointer;
@@ -132,17 +132,17 @@ body {
                 font-family: var(--ff-heading);
                 position: absolute;
                 align-items: center;
-                font-size: 23px;
+                font-size: 22px;
                 font-weight: 800;
-                top: 0.7rem;
+                top: 1.5rem;
             }
             h2 {
                 color: #E26C28;
                 position: absolute;
                 display: flex;
                 align-items: center;
-                top: -1.6rem;
-                gap: 4rem;
+                top: -1.5rem;
+                gap: 6rem;
             }
             h1 {
                 color: #E26C28;
@@ -183,7 +183,7 @@ body {
                 width: 300px;
                 img {
                     height: 58px;
-                    width: 58px;                
+                    width: 58px;
                 }
             }
             a:is(:hover) {
@@ -215,7 +215,7 @@ main.welcome {
             justify-content: center;
             img {
                 height: 306px;
-                width: 306px;                
+                width: 306px;
             }
         }
         div.owl-nav {
@@ -393,10 +393,10 @@ main.catalogue {
             img.slide {
                 margin-left: 1rem;
                 height: 120px;
-                width: 120px;                
+                width: 120px;
             }
         }
-        
+
         div.owl-nav {
             position: relative;
             display: flex;
@@ -432,7 +432,7 @@ main.catalogue {
             }
         }
     }
-} 
+}
 
 
 /* ------------------- */
@@ -493,14 +493,14 @@ main.view-game{
             width: 296px;
             div.row {
                 display: flex;
-                align-items: center;                
+                align-items: center;
                 justify-content: space-between;
                 div.column {
                     h4 {
                         font-family: var(--ff-heading);
                         color: var(--color-five);
-                        font-size: 25px;  
-                        margin-top: 1rem;                      
+                        font-size: 25px;
+                        margin-top: 1rem;
                     }
                 }
                 p {
@@ -537,7 +537,7 @@ main.register {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .btn-back {            
+        .btn-back {
             visibility: hidden;
             pointer-events: none;
         }
@@ -552,7 +552,7 @@ main.register {
     }
     section {
 
-        
+
         form {
             margin-top: 3.5rem;
             display: flex;
@@ -560,7 +560,7 @@ main.register {
             align-items: center;
             gap: 1rem;
             position: relative;
-            div.form-group {               
+            div.form-group {
                 display: flex;
                 flex-wrap: wrap;
                 position: relative;
@@ -596,7 +596,7 @@ main.register {
                     position: absolute;
                     top: 66px;
                     right: 15px;
-                    
+
                 }
                 button {
                     outline: none;
@@ -611,12 +611,12 @@ main.register {
                     transition: all 0.3s ease-in;
                     width: 300px;
                 }
-        
+
                 button:is(:hover) {
                     background: url(../images/btn-hover.png.png) no-repeat center;
                     transform: scale(1.02) translateY(-5px);
                 }
-        
+
                 button:is(:active) {
                     background: url(../images/btn-active.png.png) no-repeat center;
                 }
@@ -640,7 +640,7 @@ main.register {
                     align-self: center;
                     position: relative;
                     width: 160px;
-                    height: 160px;                    
+                    height: 160px;
                 }
                 #upload {
                     cursor: pointer;
@@ -661,7 +661,7 @@ main.dashboard {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .btn-back {            
+        .btn-back {
             visibility: hidden;
             pointer-events: none;
         }
@@ -682,7 +682,7 @@ main.dashboard {
             flex-direction: column;
             align-items: center;
             position: relative;
-            div.form-group {               
+            div.form-group {
                 display: flex;
                 flex-wrap: wrap;
                 position: relative;
@@ -697,15 +697,16 @@ main.dashboard {
                 h2 {
                     color: var(--color-five);
                     font-family: var(--ff-heading);
-                    font-size: 18px;
+                    font-size: 19px;
                 }
                 span {
-                    color: var(--color-five);                    
+                    color: var(--color-five);
                     font-size: 24px;
                     font-weight: 800;
                     position: relative;
                     bottom: 33px;
-                    right: 79px;
+                    margin-left: -240px;
+                    margin-top: 0px;
                 }
             }
             aside:first-of-type {
@@ -759,7 +760,7 @@ main.dashboard {
             font-size: 24px;
             color: var(--color-five);
             left: 8px;
-            bottom: 120px;
+            bottom: 77px;
         }
         .squar {
             margin-top: 2px;
@@ -769,7 +770,7 @@ main.dashboard {
             margin-top: 20px;
             left: 30px;
         }
-    }   
+    }
 }
 
 
@@ -786,6 +787,14 @@ main.users {
             font-size: 45px;
             color: var(--color-five);
             left: 8.3rem;
+            margin-top: 1.2rem;
+        }
+        h2{
+            position: absolute;
+            font-family: var(--ff-heading);
+            font-size: 45px;
+            color: var(--color-five);
+            left: 5.8rem;
             margin-top: 1.2rem;
         }
     }
@@ -808,13 +817,44 @@ main.users {
         font-size: 34px;
         }
     }
+    /* Estilos para el contenedor */
+div.options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 29px 0 1.6rem 0;
+}
+
+/* Estilos para los botones dentro del contenedor */
+div.options button {
+    padding: 10px 20px;
+    background-color: #ffffff; /* Fondo blanco */
+    border: 2px solid transparent; /* Borde inicial transparente */
+    border-radius: 6px; /* Esquinas redondeadas */
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transiciones suaves */
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Efecto al pasar el cursor sobre el botón */
+div.options button:hover {
+    border-color: #007bff; /* Color azul en el borde */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Sombra alrededor del botón */
+}
+
+
+
+
+    }
         article {
             margin-top: 1.5rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             position: relative;
-            div.form-group {               
+            div.form-group {
                 display: flex;
                 flex-wrap: wrap;
                 position: relative;
@@ -838,7 +878,7 @@ main.users {
                     right: 26px;
                 }
                 span {
-                    color: var(--color-five);                    
+                    color: var(--color-five);
                     font-size: 24px;
                     font-weight: 800;
                     position: relative;
@@ -846,12 +886,13 @@ main.users {
                     left: 43px;
                 }
                 strong {
-                    color: var(--color-six);                    
+                    color: var(--color-six);
                     font-size: 20px;
                     font-weight: 800;
                     position: relative;
                     bottom: 90px;
-                    right: 33px;
+                    right: 110px;
+                    margin-top: 12px;
                 }
             }
             aside:first-of-type {
@@ -906,7 +947,16 @@ main.users {
             margin-top: 43px;
             left: 23px;
         }
-    }  
+        #list.option{
+            position: absolute;
+            margin-top: 31px;
+            width: 86px;
+            height: 59.08px;
+            left: 30px;
+            border-radius: 5px;
+        }
+
+    }
 
     /* C-A-T-E-G-O-R-I-E-S */
     /*---------*/
@@ -919,7 +969,7 @@ main.users {
             h1{
                 position: absolute;
                 font-family: var(--ff-heading);
-                font-size: 45px;
+                font-size: 40px;
                 color: var(--color-five);
                 left: 5rem;
                 margin-top: 1.2rem;
@@ -932,6 +982,7 @@ main.users {
             justify-content: center;
             position: relative;
             top: 0.5rem;
+            margin-bottom: 20px;
             strong {
             margin-top: 11px;
             display: flex;
@@ -950,7 +1001,7 @@ main.users {
                 flex-direction: column;
                 align-items: center;
                 position: relative;
-                div.form-group {               
+                div.form-group {
                     display: flex;
                     flex-wrap: wrap;
                     position: relative;
@@ -974,7 +1025,7 @@ main.users {
                         right: 26px;
                     }
                     span {
-                        color: var(--color-five);                    
+                        color: var(--color-five);
                         font-size: 24px;
                         font-weight: 800;
                         position: relative;
@@ -982,7 +1033,7 @@ main.users {
                         left: 11px;
                     }
                     strong {
-                        color: var(--color-six);                    
+                        color: var(--color-six);
                         font-size: 20px;
                         font-weight: 800;
                         position: relative;
@@ -1025,6 +1076,7 @@ main.users {
                     .add1{
                         position: absolute;
                         bottom: 51px;
+                        margin-bottom: 28px;
                         left: 54px;
                         display: flex;
                         align-items: center;
@@ -1042,7 +1094,7 @@ main.users {
                 margin-top: 43px;
                 left: 23px;
             }
-        }  
+        }
     /* G - A - M - E - S */
 main.games {
     header {
@@ -1107,7 +1159,7 @@ main.games {
                     height: 32px;
                 }
             }
-            div.form-group {               
+            div.form-group {
                 display: flex;
                 flex-wrap: wrap;
                 position: relative;
@@ -1131,7 +1183,7 @@ main.games {
                     right: 24px;
                 }
                 span {
-                    color: var(--color-five);                    
+                    color: var(--color-five);
                     font-size: 24px;
                     font-weight: 800;
                     position: relative;
@@ -1139,7 +1191,7 @@ main.games {
                     left: 43px;
                 }
                 h1 {
-                    color: var(--color-five);                    
+                    color: var(--color-five);
                     font-size: 24px;
                     font-weight: 800;
                     position: relative;
@@ -1147,7 +1199,7 @@ main.games {
                     right: 24px;
                 }
                 h2 {
-                    color: var(--color-five);                   
+                    color: var(--color-five);
                     font-size: 18px;
                     font-weight: 800;
                     position: relative;
@@ -1155,7 +1207,7 @@ main.games {
                     right: 6px;
                 }
                 strong {
-                    color: var(--color-six);                    
+                    color: var(--color-six);
                     font-size: 20px;
                     font-weight: 800;
                     position: relative;
@@ -1385,7 +1437,7 @@ main.my-profile {
         display: flex;
         flex-direction: column;
         align-items: center;
-        
+
         gap: 0.1rem;
         figure.avatar {
             position: relative;
@@ -1415,7 +1467,7 @@ main.my-profile {
             font-size: 24px;
         }
         span {
-            color: #fff;            
+            color: #fff;
             height: 30px;
             display: flex;
             align-items: center;
@@ -1441,12 +1493,12 @@ main.my-profile {
             span.data {
                 height: 60px;
                 width: 300;
-    
+
             }
         span.role {
             background: url(../images/bg-administrador.vg) no-repeat center;
             margin-top: 20px;
-            color: var(--color-six);            
+            color: var(--color-six);
             height: 10px;
             border-radius: 20px;
             display: flex;
@@ -1466,7 +1518,7 @@ main.my-profile {
             font-weight: bold;
             font-size: 18px;
             height: 20px;
-            
+
         }
         div.grid {
             display: grid;
@@ -1635,7 +1687,7 @@ main.show-category {
         display: flex;
         flex-direction: column;
         align-items: center;
-        
+
         gap: 0.1rem;
         figure.avatar {
             position: relative;
@@ -1666,7 +1718,7 @@ main.show-category {
             margin-top: 20px;
         }
         span {
-            color: #fff;            
+            color: #fff;
             height: 30px;
             display: flex;
             align-items: center;
@@ -1692,12 +1744,12 @@ main.show-category {
             span.data {
                 height: 60px;
                 width: 900;
-    
+
             }
         span.role {
             background: url(../images/bg-administrador.vg) no-repeat center;
             margin-top: 20px;
-            color: var(--color-six);            
+            color: var(--color-six);
             height: 10px;
             border-radius: 20px;
             display: flex;
@@ -1717,7 +1769,7 @@ main.show-category {
             font-weight: bold;
             font-size: 18px;
             height: 50px;
-            
+
         }
         div.grid {
             display: grid;
@@ -1781,11 +1833,11 @@ main.editcategory {
         flex-direction: column;
         align-items: center;
         position: relative;
-        top: 1.5rem;
+        top: 4.5rem;
         article {
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: 9.8rem;
             width: 296px;
             margin-top: -16rem;
         }
@@ -1804,7 +1856,9 @@ main.editcategory {
                 font-weight: 700;
                 font-size: 23px;
                 font-weight: 210px;
+
             }
+
             button{
                 display: flex;
                 text-align: center;
@@ -1842,9 +1896,13 @@ main.editcategory {
                 color: #E26C28;
                 border: none;
                 outline: none;
+                padding-top: 100px; /* Ajusta el valor según lo necesites */
+
                 &::placeholder {
                     opacity: 0.6;
                 }
+            }
+
             }
             img.mask {
                 left: 4.5rem;
@@ -1860,4 +1918,4 @@ main.editcategory {
             }
         }
     }
-}
+
